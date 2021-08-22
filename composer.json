@@ -47,7 +47,9 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"SMW\\Scribunto\\": "src/"
+			"SMW\\Scribunto\\": "src/",
+			"SMW\\Scribunto\\Integration\\": "tests/phpunit/Integration/",
+			"SMW\\Scribunto\\Tests\\": "tests/phpunit/Unit/"
 		}
 	},
 	"config": {
