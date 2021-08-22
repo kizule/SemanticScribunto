@@ -46,9 +46,6 @@
 		}
 	},
 	"autoload": {
-		"files" : [
-			"SemanticScribunto.php"
-		],
 		"psr-4": {
 			"SMW\\Scribunto\\": "src/"
 		}
