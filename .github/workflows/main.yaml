@@ -37,15 +37,19 @@ jobs:
           php composer.phar require --no-update --no-plugins
           wikimedia/composer-merge-plugin ~2                                  &&
           php composer.phar config minimum-stability dev
-          --working-dir ${{env.MW_INSTALL_PATH}}                              &&
+          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
           php composer.phar config --global --auth github-oauth.github.com ${{github.token}}
-          --working-dir ${{env.MW_INSTALL_PATH}}                              &&
+          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
+          echo "Composer update run twice so we have the right version"       &&
+          php composer.phar update --prefer-source
+          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
           php composer.phar update --prefer-source
           --working-dir ${{env.MW_INSTALL_PATH}}                              &&
           php composer.phar dump-autoload
           --working-dir ${{env.MW_INSTALL_PATH}}
       - name: Install and populate the DB
         run: >-
+          ls -l ${{env.MW_INSTALL_PATH}}/extensions/SemanticScribunto/extension.json ${{env.MW_INSTALL_PATH}}/extensions/SemanticMediaWiki/extension.json &&
           cat ${{env.MW_INSTALL_PATH}}/extensions/SemanticScribunto/extension.json ${{env.MW_INSTALL_PATH}}/extensions/SemanticMediaWiki/extension.json &&
           php ${{env.MW_INSTALL_PATH}}/maintenance/install.php --dbtype=sqlite
           --dbname=mywiki --pass=ugly123456 --scriptpath=""
