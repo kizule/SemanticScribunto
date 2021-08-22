@@ -45,7 +45,7 @@ abstract class ScribuntoLuaEngineTestBase extends \Scribunto_LuaEngineTestBase
 		// MW 1.31
 		$this->setCliArg( 'use-normal-tables', true );
 
-		parent::run( $result );
+		return parent::run( $result );
 	}
 
 	/**
