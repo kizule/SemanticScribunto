@@ -18,7 +18,7 @@ class LibraryFactoryTest extends \PHPUnit_Framework_TestCase {
 	private $store;
 	private $parser;
 
-	protected function setUp() {
+	protected function setUp(): void {
 
 		$language = $this->getMockBuilder( '\Language' )
 			->disableOriginalConstructor()

@@ -29,7 +29,7 @@ class LuaAskResultProcessorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Set-up method prepares a mock {@see \SMWQueryResult}
 	 */
-	protected function setUp() {
+	protected function setUp(): void {
 
 		parent::setUp();
 
