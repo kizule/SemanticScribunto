@@ -18,9 +18,7 @@
 		}
 	},
 	"MessagesDirs": {
-		"SemanticScribunto": [
-			"i18n"
-		]
+		"SemanticScribunto": "i18n"
 	},
 	"Hooks": {
 		"ScribuntoExternalLibraries": "SMW\\Scribunto\\Hook::onScribuntoExternalLibraries"
