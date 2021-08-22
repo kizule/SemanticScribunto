@@ -3,9 +3,9 @@
 namespace SMW\Scribunto\Integration\JSONScript;
 
 use SMW\DIWikiPage;
-use SMW\Tests\JsonTestCaseFileHandler;
-use SMW\Tests\JsonTestCaseScriptRunner;
-use SMW\Tests\LightweightJsonTestCaseScriptRunner;
+use SMW\Tests\Utils\JSONScript\JsonTestCaseFileHandler;
+use SMW\Tests\JSONScriptTestCaseRunner;
+use SMW\Tests\JSONScriptServicesTestCaseRunner;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/tree/master/tests#write-integration-tests-using-json-script
@@ -28,7 +28,7 @@ use SMW\Tests\LightweightJsonTestCaseScriptRunner;
  *
  * @author mwjames
  */
-class SemanticScribuntoJsonTestCaseScriptRunnerTest extends LightweightJsonTestCaseScriptRunner {
+class SemanticScribuntoJsonTestCaseScriptRunnerTest extends JSONScriptServicesTestCaseRunner {
 
 	/**
 	 * @see JsonTestCaseScriptRunner::getRequiredJsonTestCaseMinVersion
