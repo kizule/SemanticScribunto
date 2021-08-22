@@ -3,6 +3,7 @@
 namespace SMW\Scribunto\Tests;
 
 use SMW\Scribunto\ScribuntoLuaLibrary;
+use PHPUnit\Framework\TestResult;
 
 /**
  * Encapsulation of the Scribunto_LuaEngineTestBase class
@@ -40,7 +41,7 @@ abstract class ScribuntoLuaEngineTestBase extends \Scribunto_LuaEngineTestBase
 	/**
 	 * Only needed for MW 1.31
 	 */
-	public function run( \PHPUnit_Framework_TestResult $result = null ) {
+	public function run( TestResult $result = null ) {
 		// MW 1.31
 		$this->setCliArg( 'use-normal-tables', true );
 
