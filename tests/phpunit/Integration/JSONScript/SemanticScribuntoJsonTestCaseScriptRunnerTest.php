@@ -3,7 +3,6 @@
 namespace SMW\Scribunto\Integration\JSONScript;
 
 use SMW\DIWikiPage;
-use SMW\Scribunto\HookRegistry;
 use SMW\Tests\JsonTestCaseFileHandler;
 use SMW\Tests\JsonTestCaseScriptRunner;
 use SMW\Tests\LightweightJsonTestCaseScriptRunner;
@@ -30,20 +29,6 @@ use SMW\Tests\LightweightJsonTestCaseScriptRunner;
  * @author mwjames
  */
 class SemanticScribuntoJsonTestCaseScriptRunnerTest extends LightweightJsonTestCaseScriptRunner {
-
-	/**
-	 * @var HookRegistry
-	 */
-	private $hookRegistry;
-
-	protected function setUp() {
-		parent::setUp();
-
-		$this->hookRegistry = new HookRegistry();
-
-		$this->hookRegistry->clear();
-		$this->hookRegistry->register();
-	}
 
 	/**
 	 * @see JsonTestCaseScriptRunner::getRequiredJsonTestCaseMinVersion

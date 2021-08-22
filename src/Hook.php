@@ -55,9 +55,6 @@ class Hook {
 				);
 			}
 		}
-
-		$hookRegistry = new HookRegistry();
-		$hookRegistry->register();
 	}
 
 	/**
