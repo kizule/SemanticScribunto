@@ -2,11 +2,12 @@
 
 namespace SMW\Scribunto\Tests;
 
-use \SMW\Scribunto\LuaAskResultProcessor;
-use \SMWQueryResult;
-use \SMW\Query\PrintRequest;
-use \SMWResultArray;
-use \SMWNumberValue;
+use SMW\Scribunto\LuaAskResultProcessor;
+use SMWQueryResult;
+use SMW\Query\PrintRequest;
+use SMWResultArray;
+use SMWNumberValue;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \SMW\Scribunto\LuaAskResultProcessor
@@ -17,7 +18,7 @@ use \SMWNumberValue;
  *
  * @author Tobias Oetterer
  */
-class LuaAskResultProcessorTest extends \PHPUnit_Framework_TestCase {
+class LuaAskResultProcessorTest extends TestCase {
 
 	/**
 	 * Holds a mock of a query result for this test

@@ -3,6 +3,7 @@
 namespace SMW\Scribunto\Tests\Integration;
 
 use SMW\Tests\Utils\UtilityFactory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group semantic-scribunto
@@ -13,7 +14,7 @@ use SMW\Tests\Utils\UtilityFactory;
  *
  * @author mwjames
  */
-class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
+class I18nJsonFileIntegrityTest extends TestCase {
 
 	/**
 	 * @dataProvider i18nFileProvider

@@ -3,6 +3,8 @@
 namespace SMW\Scribunto\Tests;
 
 use SMW\Scribunto\LibraryFactory;
+use PHPUnit\Framework\TestCase;
+
 
 /**
  * @covers \SMW\Scribunto\LibraryFactory
@@ -13,7 +15,7 @@ use SMW\Scribunto\LibraryFactory;
  *
  * @author mwjames
  */
-class LibraryFactoryTest extends \PHPUnit_Framework_TestCase {
+class LibraryFactoryTest extends TestCase {
 
 	private $store;
 	private $parser;
