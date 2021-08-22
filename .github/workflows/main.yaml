@@ -32,7 +32,6 @@ jobs:
           echo '{"require":{"${{env.composerID}}":"dev-'${branch}'"},'
           '"repositories": [{"type":"vcs","url":"https://github.com/${{github.repository}}.git"}]}'
           > ${{env.MW_INSTALL_PATH}}/composer.local.json                      &&
-          cat ${{env.MW_INSTALL_PATH}}/composer.local.json                    &&
           cd ${{env.MW_INSTALL_PATH}}                                         &&
           echo "We need to make sure we have the right version:"              &&
           php composer.phar require --no-update --no-plugins
@@ -47,6 +46,7 @@ jobs:
           --working-dir ${{env.MW_INSTALL_PATH}}
       - name: Install and populate the DB
         run: >-
+          cat ${{env.MW_INSTALL_PATH}}/extensions/SemanticScribunto/extension.json ${{env.MW_INSTALL_PATH}}/extensions/SemanticMediaWiki/extension.json &&
           php ${{env.MW_INSTALL_PATH}}/maintenance/install.php --dbtype=sqlite
           --dbname=mywiki --pass=ugly123456 --scriptpath=""
           --dbpath=${{env.MW_DATA_DIR}} --server="http://localhost:8000"
