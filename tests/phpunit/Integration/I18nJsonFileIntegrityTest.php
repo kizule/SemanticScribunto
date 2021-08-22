@@ -38,6 +38,9 @@ class I18nJsonFileIntegrityTest extends TestCase {
 
 		$provider = [];
 		$location = $GLOBALS['wgMessagesDirs']['SemanticScribunto'];
+		if ( is_array( $location ) ) {
+			$location = array_pop( $location );
+		}
 
 		$bulkFileProvider = UtilityFactory::getInstance()->newBulkFileProvider( $location );
 		$bulkFileProvider->searchByFileExtension( 'json' );
