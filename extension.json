@@ -22,6 +22,9 @@
 			"i18n"
 		]
 	},
+	"Hooks": {
+		"ScribuntoExternalLibraries": "SMW\\Scribunto\\Hook::onScribuntoExternalLibraries"
+	},
 	"callback": "SMW\\Scribunto\\Hook::initExtension",
 	"ExtensionFunctions": [
 		"SMW\\Scribunto\\Hook::onExtensionFunction"

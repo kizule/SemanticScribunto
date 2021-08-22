@@ -60,4 +60,11 @@ class Hook {
 		$hookRegistry->register();
 	}
 
+	/**
+	 * @since 2.0
+	 */
+	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
+		$extraLibraries['mw.smw'] = ScribuntoLuaLibrary::class;
+		return true;
+	}
 }
