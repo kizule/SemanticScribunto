@@ -129,9 +129,11 @@ class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 		$result = $queryResult->toArray();
 
 		if( !empty( $result["results"] ) ) {
-			// as of now, "results" has page names as keys. lua is not very good, keeping non-number keys in order
-			// so replace string keys with the corresponding number, starting with 0.
-		    $result["results"] = array_combine( range( 0, count( $result["results"] ) - 1 ), array_values( $result["results"] ) );
+			// as of now, "results" has page names as keys. lua is not very good, keeping non-number
+			// keys in order so replace string keys with the corresponding number, starting with 0.
+		    $result["results"] = array_combine(
+				range( 0, count( $result["results"] ) - 1 ), array_values( $result["results"] )
+			);
 		}
 
 		return [ $this->convertArrayToLuaTable( $result ) ];
@@ -248,7 +250,9 @@ class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 			 $this->getLibraryFactory()->newParserParameterProcessorFrom( $arguments )
 		);
 
-		if ( strlen( $result = $this->doPostProcessParserFunctionCallResult( $parserFunctionCallResult ) ) ) {
+		if (
+			strlen( $result = $this->doPostProcessParserFunctionCallResult( $parserFunctionCallResult ) )
+		) {
 			// if result a non empty string, assume an error message
 			return [ [ 1 => false, self::SMW_ERROR_FIELD => preg_replace( '/<[^>]+>/', '', $result ) ] ];
 		}
@@ -291,7 +295,8 @@ class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 		// parser function call can return string or array
 		if ( is_array( $parserFunctionResult ) ) {
 			$result = $parserFunctionResult[0];
-			$noParse = isset( $parserFunctionResult['noparse'] ) ? $parserFunctionResult['noparse'] : true;
+			$noParse = isset( $parserFunctionResult['noparse'] )
+					 ? $parserFunctionResult['noparse'] : true;
 		} else {
 			$result = $parserFunctionResult;
 			$noParse = true;
@@ -311,7 +316,7 @@ class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 	 *
 	 * @return LibraryFactory
 	 */
-	private function getLibraryFactory() {
+	private function getLibraryFactory(): LibraryFactory {
 
 		if ( $this->libraryFactory !== null ) {
 			return $this->libraryFactory;

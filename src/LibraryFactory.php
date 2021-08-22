@@ -4,6 +4,7 @@ namespace SMW\Scribunto;
 
 use SMWQueryProcessor as QueryProcessor;
 use SMWQuery as Query;
+use SMW\Query\QueryResult;
 use SMW\Store;
 use SMW\ApplicationFactory;
 use SMW\ParameterProcessorFactory;
@@ -32,7 +33,7 @@ class LibraryFactory {
 	}
 
 	/**
-	 * Creates a new SMWQueryResult from passed arguments,
+	 * Creates a new QueryResult from passed arguments,
 	 * utilizing the {@see SMWQueryProcessor}
 	 *
 	 * @since 1.0
@@ -41,7 +42,7 @@ class LibraryFactory {
 	 *
 	 * @return \SMWQueryResult
 	 */
-	public function newQueryResultFrom( $rawParameters ) {
+	public function newQueryResultFrom( $rawParameters ): QueryResult {
 
 		list( $queryString, $parameters, $printouts ) = QueryProcessor::getComponentsFromFunctionParams(
 			$rawParameters,
@@ -99,7 +100,8 @@ class LibraryFactory {
 	 * @return \SMW\ParserFunctions\SetParserFunction
 	 */
 	public function newSetParserFunction( Parser $parser ) {
-		return ApplicationFactory::getInstance()->newParserFunctionFactory( $parser )->newSetParserFunction( $parser );
+		return ApplicationFactory::getInstance()->newParserFunctionFactory( $parser )
+												->newSetParserFunction( $parser );
 	}
 
 	/**
@@ -112,6 +114,7 @@ class LibraryFactory {
 	 * @return \SMW\SubobjectParserFunction
 	 */
 	public function newSubobjectParserFunction( Parser $parser ) {
-		return ApplicationFactory::getInstance()->newParserFunctionFactory( $parser )->newSubobjectParserFunction( $parser );
+		return ApplicationFactory::getInstance()->newParserFunctionFactory( $parser )
+												->newSubobjectParserFunction( $parser );
 	}
 }
