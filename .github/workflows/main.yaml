@@ -49,8 +49,6 @@ jobs:
           --working-dir ${{env.MW_INSTALL_PATH}}
       - name: Install and populate the DB
         run: >-
-          ls -l ${{env.MW_INSTALL_PATH}}/extensions/SemanticScribunto/extension.json ${{env.MW_INSTALL_PATH}}/extensions/SemanticMediaWiki/extension.json &&
-          cat ${{env.MW_INSTALL_PATH}}/extensions/SemanticScribunto/extension.json ${{env.MW_INSTALL_PATH}}/extensions/SemanticMediaWiki/extension.json &&
           php ${{env.MW_INSTALL_PATH}}/maintenance/install.php --dbtype=sqlite
           --dbname=mywiki --pass=ugly123456 --scriptpath=""
           --dbpath=${{env.MW_DATA_DIR}} --server="http://localhost:8000"

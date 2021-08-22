@@ -22,9 +22,9 @@
 			"i18n"
 		]
 	},
-	"callback": "SemanticScribunto::initExtension",
+	"callback": "SMW\\Scribunto\\Hook::initExtension",
 	"ExtensionFunctions": [
-		"SemanticScribunto::onExtensionFunction"
+		"SMW\\Scribunto\\Hook::onExtensionFunction"
 	],
 	"load_composer_autoloader":true,
 	"manifest_version": 2
