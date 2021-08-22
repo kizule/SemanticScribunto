@@ -40,7 +40,7 @@ class LibraryFactory {
 	 *
 	 * @param array $rawParameters
 	 *
-	 * @return \SMWQueryResult
+	 * @return QueryResult
 	 */
 	public function newQueryResultFrom( $rawParameters ): QueryResult {
 
