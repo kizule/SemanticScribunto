@@ -78,8 +78,7 @@ class LuaAskResultProcessorTest extends TestCase {
 
 		$result = $instance->getProcessedResult();
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$result
 		);
 
@@ -104,7 +103,7 @@ class LuaAskResultProcessorTest extends TestCase {
 
 		$result = $instance->getDataFromQueryResultRow( $resultRow );
 
-		$this->assertInternalType( 'array', $result );
+		$this->assertIsArray( $result );
 
 		$this->assertEquals( 1, count( $result ) );
 	}
@@ -138,8 +137,7 @@ class LuaAskResultProcessorTest extends TestCase {
 			->will( $this->returnValue( '' ) );
 
 		/** @noinspection PhpParamsInspection */
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(,
 			$instance->getKeyFromPrintRequest( $printRequest )
 		);
 
@@ -150,8 +148,7 @@ class LuaAskResultProcessorTest extends TestCase {
 		);
 
 		/** @noinspection PhpParamsInspection */
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$instance->getKeyFromPrintRequest( $printRequest2 )
 		);
 
@@ -176,41 +173,8 @@ class LuaAskResultProcessorTest extends TestCase {
 		$resultArray = $this->constructResultArray();
 
 		/** @noinspection PhpParamsInspection */
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$instance->getDataFromResultArray( $resultArray )
-		);
-	}
-
-	/**
-	 * Tests data value extraction. Uses data provider {@see dataProvidergetValueFromDataValueTest}
-	 * @dataProvider dataProvidergetValueFromDataValueTest
-	 *
-	 * @param string $class name of data value class
-	 * @param string $type data value type
-	 * @param string $expects return value type
-	 *
-	 * @see \SMW\Scribunto\LuaAskResultProcessor::getValueFromDataValue
-	 *
-	 * @return void
-	 */
-	public function testGetValueFromDataValue( $class, $type, $expects ) {
-
-		$instance = new LuaAskResultProcessor( $this->queryResult );
-
-		$dataValue = $this->getMockBuilder( '\\' . $class )
-			->setConstructorArgs( [ $type ] )
-			->getMock();
-
-		$dataValue->expects( $this->any() )
-			->method( 'getTypeID' )
-			->will( $this->returnValue( $type ) );
-
-
-		/** @noinspection PhpParamsInspection */
-		$this->assertInternalType(
-			$expects,
-			$instance->getValueFromDataValue( $dataValue )
 		);
 	}
 
@@ -247,8 +211,7 @@ class LuaAskResultProcessorTest extends TestCase {
 
 		$instance = new LuaAskResultProcessor( $this->queryResult );
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$instance->getNumericIndex()
 		);
 

@@ -46,8 +46,7 @@ class ScribuntoLuaLibraryAskTest extends ScribuntoLuaEngineTestBase {
 			$this->getScribuntoLuaLibrary()->ask( '[[Modification date::+]]|?Modification date|limit=2|mainlabel=main' )
 		);
 		// invalid query
-		$this->assertInternalType(
-			'null',
+		$this->assertNull(
 			$this->getScribuntoLuaLibrary()->ask( '?Modification date|limit=2|mainlabel=main' )[0]
 		);
 	}

@@ -23,13 +23,11 @@ class I18nJsonFileIntegrityTest extends TestCase {
 
 		$jsonFileReader = UtilityFactory::getInstance()->newJsonFileReader( $file );
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$jsonFileReader->getModificationTime()
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$jsonFileReader->read()
 		);
 	}
