@@ -137,7 +137,7 @@ class LuaAskResultProcessorTest extends TestCase {
 			->will( $this->returnValue( '' ) );
 
 		/** @noinspection PhpParamsInspection */
-		$this->assertIsString(,
+		$this->assertIsString(
 			$instance->getKeyFromPrintRequest( $printRequest )
 		);
 

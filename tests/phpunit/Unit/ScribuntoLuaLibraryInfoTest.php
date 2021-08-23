@@ -41,7 +41,7 @@ class ScribuntoLuaLibraryInfoTest extends ScribuntoLuaEngineTestBase {
 		$this->assertEmpty(
 			$this->getScribuntoLuaLibrary()->info( '' )
 		);
-		$this->assertIsString(,
+		$this->assertIsString(
 			$this->getScribuntoLuaLibrary()->info( 'Test info text' )[0]
 		);
 		$this->assertStringStartsWith(
